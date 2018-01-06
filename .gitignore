@@ -15,14 +15,15 @@
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-x64/
-x86/
-bld/
-[Bb]in/
+# [Rr]elease/
+# [Rr]eleases/
+# x64/
+# x86/
+# bld/
+# [Bb]in/
 [Oo]bj/
 [Ll]og/
+# *.exe
 
 # Visual Studio 2015 cache/options directory
 .vs/
@@ -40,7 +41,7 @@ TestResult.xml
 # Build Results of an ATL Project
 [Dd]ebugPS/
 [Rr]eleasePS/
-dlldata.c
+# dlldata.c
 
 # .NET Core
 project.lock.json
