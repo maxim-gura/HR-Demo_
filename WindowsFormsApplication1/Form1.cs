@@ -25,12 +25,12 @@ namespace WindowsFormsApplication1
         private void Form1_Shown(object sender, EventArgs e)
         {
 
+            fillGrid(dataGridView1);  // initial filling of the grid with employees data
 
-           
-           
+
         }
 
-     
+  
 
         public static DataTable extractTable(string st) // generic function returning dataset (DataTable type) for any SELECT SQL-query
         {
@@ -98,9 +98,22 @@ namespace WindowsFormsApplication1
 
         }
 
-       
-
-   
-
+        private void delEmp_btn_Click(object sender, EventArgs e)
+        {
+            string del_str = "";
+            if (dataGridView1.SelectedRows.Count>0)
+            {
+                DialogResult res = MessageBox.Show("Are you sure you want to Delete employee '"+ dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["full_name"].Value.ToString()+"'?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                if (res == DialogResult.OK)
+                {
+                    del_str = "delete from world.emp where emp.id=" + dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells["id"].Value.ToString();
+                    executeSQL(del_str);
+                    fillGrid(dataGridView1);
+                }
+               
+               
+            }
+            
+        }
     }
 }

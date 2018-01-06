@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
 
             this.DialogResult = DialogResult.OK;
 
-            this.labelStatusBar.Text = this.inputIsEmpty();
+            this.labelStatusBar.Text = this.inputIsEmpty(); // checks if all required fields are not empty
             if (this.labelStatusBar.Text != "")
             {
                 
@@ -34,8 +34,14 @@ namespace WindowsFormsApplication1
                 {
                 string dob = dateForSQL(dtpDOB.Value);
                 string emp_date = dateForSQL(dtpEmp. Value);
+
+                string nat = "";
+                nat = cmbNationality.Text.Trim();
+                nat = nat.Substring(nat.ToString().Length - 4, 3); //extracting nationality code from combobox
+                
+
                 // string sqlStr = "insert into world.emp (full_name, dob, marital_status, emp_start_date, nationality) values ('" + this.fullName.Text.Trim() + "', STR_TO_DATE('" + dob + "','%m-%d-%Y'), '" + this.cmbMarital.Text.Trim() + "', STR_TO_DATE('" + emp_date + "','%m-%d-%Y'), 'USA')";
-                string sqlStr = "call world.add_emp('" + this.fullName.Text.Trim() + "', '" + dob + "', '" + this.cmbMarital.Text.Trim() + "', '" + emp_date + "', 'USA', '"+ this.cmbResidency.Text.Trim()+"')";
+                string sqlStr = "call world.add_emp('" + this.fullName.Text.Trim() + "', '" + dob + "', '" + this.cmbMarital.Text.Trim() + "', '" + emp_date + "', '"+nat+"', '"+ this.cmbResidency.Text.Trim()+"')";
                 Form1.executeSQL(sqlStr); // calling stored procedure at MySql database to insert the record with new employee data
 
 
@@ -101,7 +107,7 @@ namespace WindowsFormsApplication1
             int i = 0;
             for (i = 0; i < dtSet.Rows.Count; i++)
             {
-                sender.Items.Add(dtSet.Rows[i]["name"].ToString());
+                sender.Items.Add(dtSet.Rows[i]["name"].ToString()+" ("+ dtSet.Rows[i]["code"].ToString()+")");
             }
         }
 

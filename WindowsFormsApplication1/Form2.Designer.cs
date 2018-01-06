@@ -182,10 +182,6 @@
             // cmbNationality
             // 
             this.cmbNationality.FormattingEnabled = true;
-            this.cmbNationality.Items.AddRange(new object[] {
-            "USA",
-            "Canada",
-            "Mexico"});
             this.cmbNationality.Location = new System.Drawing.Point(171, 207);
             this.cmbNationality.Name = "cmbNationality";
             this.cmbNationality.Size = new System.Drawing.Size(205, 21);

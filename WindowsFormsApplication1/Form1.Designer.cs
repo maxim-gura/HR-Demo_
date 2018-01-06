@@ -28,8 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.full_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.marital_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emp_start_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nationality = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.residency_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empList_btn = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -39,19 +46,13 @@
             this.editEmp_btn = new System.Windows.Forms.Button();
             this.delEmp_btn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.full_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dob = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.marital_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emp_start_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nationality = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.residency_status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -68,9 +69,56 @@
             this.dataGridView1.Location = new System.Drawing.Point(177, 1);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.ShowEditingIcon = false;
             this.dataGridView1.Size = new System.Drawing.Size(627, 370);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "id";
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ID.DefaultCellStyle = dataGridViewCellStyle7;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // full_name
+            // 
+            this.full_name.DataPropertyName = "full_name";
+            this.full_name.HeaderText = "Full name";
+            this.full_name.Name = "full_name";
+            // 
+            // dob
+            // 
+            this.dob.DataPropertyName = "dob";
+            this.dob.HeaderText = "Date of birth";
+            this.dob.Name = "dob";
+            // 
+            // marital_status
+            // 
+            this.marital_status.DataPropertyName = "marital_status";
+            this.marital_status.HeaderText = "Marital status";
+            this.marital_status.Name = "marital_status";
+            // 
+            // emp_start_date
+            // 
+            this.emp_start_date.DataPropertyName = "emp_start_date";
+            this.emp_start_date.HeaderText = "Employment start";
+            this.emp_start_date.Name = "emp_start_date";
+            // 
+            // nationality
+            // 
+            this.nationality.DataPropertyName = "nationality";
+            this.nationality.HeaderText = "Nationality";
+            this.nationality.Name = "nationality";
+            // 
+            // residency_status
+            // 
+            this.residency_status.DataPropertyName = "residency_status";
+            this.residency_status.HeaderText = "Residency status";
+            this.residency_status.Name = "residency_status";
             // 
             // empList_btn
             // 
@@ -92,7 +140,6 @@
             this.button4.Text = "LEAVE CALENDAR";
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.UseVisualStyleBackColor = true;
-            
             // 
             // panel1
             // 
@@ -159,7 +206,7 @@
             this.delEmp_btn.TabIndex = 7;
             this.delEmp_btn.Text = "Delete";
             this.delEmp_btn.UseVisualStyleBackColor = true;
-            
+            this.delEmp_btn.Click += new System.EventHandler(this.delEmp_btn_Click);
             // 
             // panel2
             // 
@@ -171,50 +218,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(627, 31);
             this.panel2.TabIndex = 7;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "id";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ID.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            // 
-            // full_name
-            // 
-            this.full_name.DataPropertyName = "full_name";
-            this.full_name.HeaderText = "Full name";
-            this.full_name.Name = "full_name";
-            // 
-            // dob
-            // 
-            this.dob.DataPropertyName = "dob";
-            this.dob.HeaderText = "Date of birth";
-            this.dob.Name = "dob";
-            // 
-            // marital_status
-            // 
-            this.marital_status.DataPropertyName = "marital_status";
-            this.marital_status.HeaderText = "Marital status";
-            this.marital_status.Name = "marital_status";
-            // 
-            // emp_start_date
-            // 
-            this.emp_start_date.DataPropertyName = "emp_start_date";
-            this.emp_start_date.HeaderText = "Employment start";
-            this.emp_start_date.Name = "emp_start_date";
-            // 
-            // nationality
-            // 
-            this.nationality.DataPropertyName = "nationality";
-            this.nationality.HeaderText = "Nationality";
-            this.nationality.Name = "nationality";
-            // 
-            // residency_status
-            // 
-            this.residency_status.DataPropertyName = "residency_status";
-            this.residency_status.HeaderText = "Residency status";
-            this.residency_status.Name = "residency_status";
             // 
             // Form1
             // 
